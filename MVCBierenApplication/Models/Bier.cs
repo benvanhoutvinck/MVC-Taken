@@ -10,8 +10,11 @@ namespace MVCBierenApplication.Models
     {
         [DisplayFormat(DataFormatString="{0,18:000}")]
         public int ID { get; set; }
+        [StringLength(20, ErrorMessage = "Max. {1} tekens voor {0}")]
+        [Required]
         public string Naam { get; set; }
         [UIHint("kleuren")]
+        [Range(0, 15, ErrorMessage = "De minimum- en maximumwaarden zijn : {1} en {2}")]
         public float Alcohol { get; set; }
     }
 }

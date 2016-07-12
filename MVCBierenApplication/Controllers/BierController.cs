@@ -39,7 +39,22 @@ namespace MVCBierenApplication.Controllers
             return View(bier);
 
         }
+        [HttpGet]
+        public ActionResult Toevoegen()
+        {
+            var bier = new Bier();
+            return View(bier);
+        }
+        public ActionResult Toevoegen(Bier b)
+        {
+            if (this.ModelState.IsValid)
+            {
+                bierService.Add(b);
+                return RedirectToAction("Index");
+
+            }
+            else
+                return View(b);
+        }
     }
-
-
 }

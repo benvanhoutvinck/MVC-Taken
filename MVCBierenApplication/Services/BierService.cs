@@ -33,5 +33,10 @@ namespace MVCBierenApplication.Services
         {
             bieren.Remove(id);
         }
+        public void Add(Bier b)
+        {
+            b.ID = bieren.Keys.Max() + 1;
+            bieren.Add(b.ID, b);
+        }
     }
 }
