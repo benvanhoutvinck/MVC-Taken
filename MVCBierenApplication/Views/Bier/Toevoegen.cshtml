@@ -10,10 +10,12 @@
 
     <div>
         @Html.LabelFor(m => m.Naam)
+        @Html.ValidationMessageFor(m => m.Naam)
         @Html.EditorFor(m => m.Naam)
     </div>
     <div>
         @Html.LabelFor(m => m.Alcohol)
+        @Html.ValidationMessageFor(m => m.Alcohol)
         @Html.EditorFor(m => m.Alcohol)
     </div>
     <input type="submit" value="toevoegen" />
