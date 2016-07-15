@@ -7,6 +7,7 @@
 <h2>BierToevoegen</h2>
 @using (Html.BeginForm())
 {
+    @Html.AntiForgeryToken()
 
     <div>
         @Html.LabelFor(m => m.Naam)
@@ -17,6 +18,18 @@
         @Html.LabelFor(m => m.Alcohol)
         @Html.ValidationMessageFor(m => m.Alcohol)
         @Html.EditorFor(m => m.Alcohol)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.SoortNr, "Soort: ")
+        @Html.DropDownList("SoortNr")
+
+    </div>
+    <div>
+        @Html.LabelFor(model => model.BrouwerNr, "Brouwer: ")
+
+        @Html.DropDownList("BrouwerNr")
+       
+
     </div>
     <input type="submit" value="toevoegen" />
     @Html.ValidationSummary()

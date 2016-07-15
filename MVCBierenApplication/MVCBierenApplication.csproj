@@ -43,6 +43,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -172,9 +174,34 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Bier.cs" />
+    <Compile Include="Models\Bier.cs">
+      <DependentUpon>BierenModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BierProperties.cs" />
+    <Compile Include="Models\BierenModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BierenModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BierenModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BierenModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BierenModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BierenModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BierUitbreiding.cs" />
+    <Compile Include="Models\Brouwer.cs">
+      <DependentUpon>BierenModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Soort.cs">
+      <DependentUpon>BierenModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BierService.cs" />
     <Compile Include="Startup.cs" />
@@ -190,6 +217,23 @@
     <Content Include="Images\delete.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\BierenModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BierenModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\BierenModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BierenModel.edmx</DependentUpon>
+      <LastGenOutput>BierenModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\BierenModel.edmx.diagram">
+      <DependentUpon>BierenModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\BierenModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BierenModel.edmx</DependentUpon>
+      <LastGenOutput>BierenModel.cs</LastGenOutput>
+    </Content>
     <None Include="Properties\PublishProfiles\VDAB.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -263,6 +307,9 @@
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Messages.Designer.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

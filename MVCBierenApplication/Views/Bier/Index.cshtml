@@ -20,18 +20,17 @@
         @foreach (var bier in Model)
         {
             <tr>
-                <td>@Html.DisplayFor(m => bier.ID)</td>
+                <td>@Html.DisplayFor(m => bier.BierNr)</td>
                 <td>@bier.Naam</td>
                 <td>@Html.DisplayFor(m => bier.Alcohol)</td>
-                <td><a href='@Url.Action("Verwijderen", new { ID = bier.ID })' title="bier @bier.ID verwijderen">
-    <img src='@Url.Content("~/Images/delete.png")' />
-</a></td>
+                <td><a href='@Url.Action("Delete", new { ID = bier.BierNr })' title="bier @bier.BierNr verwijderen">
+    <img src='@Url.Content("~/Images/delete.png")' /></a></td>
             </tr>
         }
     </tbody>
 </table>
 
-@{var bierurl = Url.Action("Toevoegen", "Bier");}
+@{var bierurl = Url.Action("Create", "Bier");}
 <a href="@bierurl">Bier toevoegen</a>
 
 

@@ -4,7 +4,8 @@
 }
 
 <h2>@Model.Naam verwijderen?</h2>
-<form method="post" action="~/Bier/Delete/@Model.ID">
+<form method="post" action="~/Bier/Delete/@Model.BierNr">
+    @Html.AntiForgeryToken()
     <input type="submit" value="Delete" />
 </form>
 
